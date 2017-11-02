@@ -1,0 +1,3 @@
+
+## lawyerfy
+###### webpack configuration boilerplate
