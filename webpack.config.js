@@ -1,47 +1,42 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const parts = require('./webpack.parts')
+const merge = require('webpack-merge')
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
   build: path.join(__dirname, 'build')
 }
 
-const commonConfig = {
-  entry:{
-    app: PATHS.app
-  },
-  output: {
-    path: PATHS.build,
-    filename: '[name].js',
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'lawyerfy',
-    })
-  ]
-}
-
-const productionConfig = () => commonConfig
-
-const developmentConfig = () => {
-  const config = {
-    devServer: {
-      historyApiFallback: true,
-      stats: 'errors-only',
-      host: process.env.HOST,
-      port: process.env.PORT,
-      overlay: {
-        errors: true,
-        warnings: true,
-      }
+const commonConfig = merge(
+  {
+    entry:{
+      app: PATHS.app
     },
-  }
-  return {...commonConfig, ...config}
-}
+    output: {
+      path: PATHS.build,
+      filename: '[name].js',
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        title: 'lawyerfy',
+      }),
+    ],
+  },
+)
+
+const productionConfig = () => merge()
+
+const developmentConfig = merge(
+  parts.devServer({
+    host: process.env.HOST,
+    port: process.env.PORT,
+  })
+)
 
 module.exports = env => {
   if(env === 'production'){
-    return productionConfig()
+    return merge(commonConfig, productionConfig)
   }
-  return developmentConfig()
+  return merge(commonConfig, developmentConfig)
 }

@@ -15,6 +15,7 @@
     "nodemon": "^1.12.1",
     "webpack": "^3.8.1",
     "webpack-config-utils": "^2.3.0",
-    "webpack-dev-server": "^2.9.4"
+    "webpack-dev-server": "^2.9.4",
+    "webpack-merge": "^4.1.1"
   }
 }
