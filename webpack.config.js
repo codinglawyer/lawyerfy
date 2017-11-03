@@ -1,6 +1,5 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const IfUtils = require('webpack')
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
