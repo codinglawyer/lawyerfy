@@ -5,13 +5,13 @@ const merge = require('webpack-merge')
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
-  build: path.join(__dirname, 'build')
+  build: path.join(__dirname, 'build'),
 }
 
 const commonConfig = merge(
   {
-    entry:{
-      app: PATHS.app
+    entry: {
+      app: PATHS.app,
     },
     output: {
       path: PATHS.build,
@@ -23,6 +23,7 @@ const commonConfig = merge(
       }),
     ],
   },
+  parts.loadCSS(),
 )
 
 const productionConfig = () => merge()
@@ -31,11 +32,11 @@ const developmentConfig = merge(
   parts.devServer({
     host: process.env.HOST,
     port: process.env.PORT,
-  })
+  }),
 )
 
 module.exports = env => {
-  if(env === 'production'){
+  if (env === 'production') {
     return merge(commonConfig, productionConfig)
   }
   return merge(commonConfig, developmentConfig)
