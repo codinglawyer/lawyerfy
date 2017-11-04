@@ -8,31 +8,29 @@ const PATHS = {
   build: path.join(__dirname, 'build'),
 }
 
-const commonConfig = merge(
-  {
-    entry: {
-      app: PATHS.app,
-    },
-    output: {
-      path: PATHS.build,
-      filename: '[name].js',
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
-        title: 'lawyerfy',
-      }),
-    ],
+const commonConfig = merge({
+  entry: {
+    app: PATHS.app,
   },
-  parts.loadCSS(),
-)
+  output: {
+    path: PATHS.build,
+    filename: '[name].js',
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'lawyerfy',
+    }),
+  ],
+})
 
-const productionConfig = () => merge()
+const productionConfig = merge(parts.extractCSS({ use: 'css-loader' }))
 
 const developmentConfig = merge(
   parts.devServer({
     host: process.env.HOST,
     port: process.env.PORT,
   }),
+  parts.loadCSS(),
 )
 
 module.exports = env => {
