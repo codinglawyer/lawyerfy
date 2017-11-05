@@ -25,6 +25,8 @@ const commonConfig = merge({
 })
 
 const productionConfig = merge(
+  // generate css bundle separated from js bundle to achieve faster css loading
+  // autoprefix add vendor prefixes to CSS
   parts.extractCSS({ use: ['css-loader', parts.autoprefix()] }),
   parts.purifyCSS({
     paths: glob.sync('${PATHS.app}/**/*.js', { nodir: true }),
