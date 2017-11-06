@@ -64,13 +64,30 @@ exports.loadImages = ({ include, exclude, options } = {}) => ({
   module: {
     rules: [
       {
-        test: /\.(jpg|png|svg)$/,
+        test: /\.(jpg|png)$/,
         include,
         exclude,
 
         use: {
           loader: 'url-loader',
           options,
+        },
+      },
+    ],
+  },
+})
+
+// use react-svg-loader for React apps
+exports.loadSvgImages = ({ include, exclude, options } = {}) => ({
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        include,
+        exclude,
+
+        use: {
+          loader: 'file-loader',
         },
       },
     ],

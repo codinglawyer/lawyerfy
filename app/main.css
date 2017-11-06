@@ -1,6 +1,7 @@
 body {
   background: cornsilk;
-  background-image: url('./me.jpg');
+  /* background-image: url('./me.jpg'); */
+  background-image: url('./NewTux.svg');
   background-repeat: no-repeat;
   background-position: center;
   display: flex
