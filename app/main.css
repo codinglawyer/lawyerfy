@@ -1,4 +1,7 @@
 body {
   background: cornsilk;
+  background-image: url('./me.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex
 }

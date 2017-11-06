@@ -10,6 +10,9 @@ const PATHS = {
 }
 
 const commonConfig = merge({
+  // Entries have to resolve to files! They rely on Node
+  // convention by default so if a directory contains *index.js*,
+  // it resolves to that.
   entry: {
     app: PATHS.app,
   },
@@ -25,11 +28,19 @@ const commonConfig = merge({
 })
 
 const productionConfig = merge(
-  // generate css bundle separated from js bundle to achieve faster css loading
+  // extractCSS generate css bundle separated from js bundle to achieve faster css loading
   // autoprefix add vendor prefixes to CSS
   parts.extractCSS({ use: ['css-loader', parts.autoprefix()] }),
+  // eleminates unused CSS
   parts.purifyCSS({
     paths: glob.sync('${PATHS.app}/**/*.js', { nodir: true }),
+  }),
+  // load images with url-loader to inline images, if too big, use file-loader to separate it from js bundle
+  parts.loadImages({
+    options: {
+      limit: 15000,
+      name: '[name].[ext]',
+    },
   }),
 )
 
@@ -39,6 +50,7 @@ const developmentConfig = merge(
     port: process.env.PORT,
   }),
   parts.loadCSS(),
+  parts.loadImages(),
 )
 
 module.exports = env => {
