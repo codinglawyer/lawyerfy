@@ -42,7 +42,6 @@ const productionConfig = merge(
       name: '[name].[ext]',
     },
   }),
-  parts.loadSvgImages(),
 )
 
 const developmentConfig = merge(
@@ -51,7 +50,6 @@ const developmentConfig = merge(
     port: process.env.PORT,
   }),
   parts.loadCSS(),
-  parts.loadSvgImages(),
   parts.loadImages(),
 )
 
