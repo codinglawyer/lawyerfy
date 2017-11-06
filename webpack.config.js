@@ -9,23 +9,29 @@ const PATHS = {
   build: path.join(__dirname, 'build'),
 }
 
-const commonConfig = merge({
-  // Entries have to resolve to files! They rely on Node
-  // convention by default so if a directory contains *index.js*,
-  // it resolves to that.
-  entry: {
-    app: PATHS.app,
+const commonConfig = merge(
+  {
+    entry: {
+      app: PATHS.app,
+    },
+    output: {
+      path: PATHS.build,
+      filename: '[name].js',
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        title: 'lawyerfy',
+      }),
+    ],
   },
-  output: {
-    path: PATHS.build,
-    filename: '[name].js',
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'lawyerfy',
-    }),
-  ],
-})
+  // limit font size, if above emits a separate file
+  parts.loadFonts({
+    options: {
+      limit: 50000,
+      name: '[name].[ext]',
+    },
+  }),
+)
 
 const productionConfig = merge(
   // extractCSS generate css bundle separated from js bundle to achieve faster css loading
