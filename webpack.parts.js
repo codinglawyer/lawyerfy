@@ -60,6 +60,7 @@ exports.autoprefix = () => ({
   },
 })
 
+// use react-svg-loader for svg giles for React apps
 exports.loadImages = ({ include, exclude, options } = {}) => ({
   module: {
     rules: [
@@ -71,23 +72,6 @@ exports.loadImages = ({ include, exclude, options } = {}) => ({
         use: {
           loader: 'url-loader',
           options,
-        },
-      },
-    ],
-  },
-})
-
-// use react-svg-loader for React apps
-exports.loadSvgImages = ({ include, exclude, options } = {}) => ({
-  module: {
-    rules: [
-      {
-        test: /\.svg$/,
-        include,
-        exclude,
-
-        use: {
-          loader: 'file-loader',
         },
       },
     ],
