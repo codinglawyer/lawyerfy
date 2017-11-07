@@ -106,7 +106,7 @@ exports.loadJavascript = ({ include, exclude } = {}) => ({
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015', 'es2016'],
+            presets: ['react', 'es2015', 'es2016'],
             // enable caching for improved performance during
             cacheDirectory: true,
           },
