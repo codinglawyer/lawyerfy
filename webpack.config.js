@@ -51,6 +51,7 @@ const productionConfig = merge(
       name: '[name].[ext]',
     },
   }),
+  parts.generateSourceMaps({ type: 'source-map' }),
 )
 
 const developmentConfig = merge(
@@ -60,6 +61,7 @@ const developmentConfig = merge(
   }),
   parts.loadCSS(),
   parts.loadImages(),
+  parts.generateSourceMaps({ type: 'cheap-module-eval-source-map' }),
 )
 
 module.exports = env => {

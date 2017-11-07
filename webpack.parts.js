@@ -21,7 +21,21 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
         test: /\.css$/,
         include,
         exclude,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: true,
+            },
+          },
+        ],
       },
     ],
   },
@@ -114,4 +128,8 @@ exports.loadJavascript = ({ include, exclude } = {}) => ({
       },
     ],
   },
+})
+
+exports.generateSourceMaps = ({ type }) => ({
+  devtool: type,
 })
