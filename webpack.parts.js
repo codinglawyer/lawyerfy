@@ -78,7 +78,7 @@ exports.loadImages = ({ include, exclude, options } = {}) => ({
   },
 })
 
-exports.loadFonts = ({ include, exclude, options} = {}) => ({
+exports.loadFonts = ({ include, exclude, options } = {}) => ({
   module: {
     rules: [
       {
@@ -89,8 +89,29 @@ exports.loadFonts = ({ include, exclude, options} = {}) => ({
         use: {
           loader: 'url-loader',
           options,
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
+})
+
+exports.loadJavascript = ({ include, exclude } = {}) => ({
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        include,
+        exclude,
+
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015', 'es2016'],
+            // enable caching for improved performance during
+            cacheDirectory: true,
+          },
+        },
+      },
+    ],
+  },
 })

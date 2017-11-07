@@ -65,34 +65,45 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__component__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__main_css__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__main_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_font_awesome_css_font_awesome_css__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_font_awesome_css_font_awesome_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_font_awesome_css_font_awesome_css__);
 
 
+var _component = __webpack_require__(1);
 
+var _component2 = _interopRequireDefault(_component);
 
-document.body.appendChild(Object(__WEBPACK_IMPORTED_MODULE_0__component__["a" /* default */])())
+__webpack_require__(2);
+
+__webpack_require__(3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+document.body.appendChild((0, _component2.default)());
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony default export */ __webpack_exports__["a"] = ((text = 'Hello world') => {
-  const element = document.createElement('div')
-  element.className = 'pure-button'
-  element.className = 'fa fa-hand-spock-o fa-1g'
-  element.innerHTML = text
-  return element
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 
+exports.default = function () {
+  var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Hello world';
+
+  var element = document.createElement('div');
+  var funccc = function funccc(arg) {
+    return arg;
+  };
+  element.className = 'fa fa-hand-spock-o fa-1g';
+  element.innerHTML = text;
+  return element;
+};
 
 /***/ }),
 /* 2 */
