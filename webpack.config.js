@@ -37,21 +37,20 @@ const commonConfig = merge(
 )
 
 const productionConfig = merge(
-  {
-    entry: {
-      vendor: ['react'],
-    },
-  },
-  // extract React to a bundle named vendor
+  // extract dependencies to a separate vendor bundle
   parts.extractBundles([
     {
       name: 'vendor',
+      minChunks: ({ resource }) =>
+        resource &&
+        resource.indexOf('node_modules') >= 0 &&
+        resource.match(/\.js$/),
     },
   ]),
   // extractCSS generate css bundle separated from js bundle to achieve faster css loading
   // autoprefix add vendor prefixes to CSS
   parts.extractCSS({ use: ['css-loader', parts.autoprefix()] }),
-  // eleminates unused CSS
+  // eliminates unused CSS
   parts.purifyCSS({
     paths: glob.sync('${PATHS.app}/**/*.js', { nodir: true }),
   }),

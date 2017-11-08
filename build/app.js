@@ -31,20 +31,20 @@ exports.default = function () {
 
 /***/ }),
 
-/***/ 14:
+/***/ 15:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 7:
+/***/ 6:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(3);
+__webpack_require__(7);
 
 var _component = __webpack_require__(12);
 
@@ -52,7 +52,7 @@ var _component2 = _interopRequireDefault(_component);
 
 __webpack_require__(13);
 
-__webpack_require__(14);
+__webpack_require__(15);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -60,5 +60,5 @@ document.body.appendChild((0, _component2.default)());
 
 /***/ })
 
-},[7]);
+},[6]);
 //# sourceMappingURL=app.js.map
