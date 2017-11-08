@@ -1,4 +1,4 @@
-webpackJsonp([0],{
+webpackJsonp([1],{
 
 /***/ 12:
 /***/ (function(module, exports, __webpack_require__) {
@@ -19,6 +19,13 @@ exports.default = function () {
   };
   element.className = 'fa fa-hand-spock-o fa-1g';
   element.innerHTML = text;
+  element.onclick = function () {
+    __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 16)).then(function (lazy) {
+      element.textContent = lazy.default;
+    }).catch(function (err) {
+      console.error(err);
+    });
+  };
   return element;
 };
 
