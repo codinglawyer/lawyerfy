@@ -23,6 +23,7 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
         exclude,
         use: [
           {
+            // vue-style-loader creates css source maps (x style-loader)
             loader: 'vue-style-loader',
           },
           {
