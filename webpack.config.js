@@ -37,7 +37,9 @@ const commonConfig = merge(
 )
 
 const productionConfig = merge(
+  // include information about the build to the build folder
   parts.clean(PATHS.build),
+  parts.attachRevision(),
   // extract dependencies to a separate vendor bundle
   parts.extractBundles([
     {
