@@ -64,6 +64,7 @@ const productionConfig = merge(
       name: '[name].[ext]',
     },
   }),
+  parts.minifyJavascript(),
   parts.generateSourceMaps({ type: 'source-map' }),
   {
     performance: {

@@ -3,6 +3,7 @@ const PurifyCSSPlugin = require('purifycss-webpack')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const GitRevisionPlugin = require('git-revision-webpack-plugin')
+const BabelWebpackPlugin = require('babel-minify-webpack-plugin')
 
 exports.devServer = ({ host, port } = {}) => ({
   devServer: {
@@ -150,4 +151,8 @@ exports.attachRevision = () => ({
       banner: new GitRevisionPlugin().version(),
     }),
   ],
+})
+
+exports.minifyJavascript = () => ({
+  plugins: [new BabelWebpackPlugin()],
 })
