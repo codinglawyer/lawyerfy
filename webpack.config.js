@@ -37,6 +37,7 @@ const commonConfig = merge(
 )
 
 const productionConfig = merge(
+  parts.clean(PATHS.build),
   // extract dependencies to a separate vendor bundle
   parts.extractBundles([
     {
