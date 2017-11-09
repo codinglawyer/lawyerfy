@@ -65,6 +65,13 @@ const productionConfig = merge(
     },
   }),
   parts.generateSourceMaps({ type: 'source-map' }),
+  {
+    performance: {
+      hints: 'warning', // 'error' or false are valid too
+      maxEntrypointSize: 100000, // in bytes
+      maxAssetSize: 450000, // in bytes
+    },
+  },
 )
 
 const developmentConfig = merge(
