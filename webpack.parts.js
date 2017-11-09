@@ -4,6 +4,8 @@ const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const GitRevisionPlugin = require('git-revision-webpack-plugin')
 const BabelWebpackPlugin = require('babel-minify-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const cssnano = require('cssnano')
 
 exports.devServer = ({ host, port } = {}) => ({
   devServer: {
@@ -156,3 +158,13 @@ exports.attachRevision = () => ({
 exports.minifyJavascript = () => ({
   plugins: [new BabelWebpackPlugin()],
 })
+
+exports.minifyCss = ({ options }) => ({
+  plugins: [
+    new OptimizeCSSAssetsPlugin({
+      cssProcessor: cssnano,
+      cssProcessorOptions: options,
+      canPrint: false,
+    }),
+  ],
+});

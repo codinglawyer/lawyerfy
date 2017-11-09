@@ -65,6 +65,16 @@ const productionConfig = merge(
     },
   }),
   parts.minifyJavascript(),
+  parts.minifyCss({
+    options: {
+      discardComments: {
+        removeAll: true,
+      },
+      // Run cssnano in safe mode to avoid
+      // potentially unsafe transformations.
+      safe: true,
+    },
+  }),
   parts.generateSourceMaps({ type: 'source-map' }),
   {
     performance: {
