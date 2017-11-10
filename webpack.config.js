@@ -84,6 +84,8 @@ const productionConfig = merge(
       maxAssetSize: 450000, // in bytes
     },
   },
+  // enables JavaScript minifier to delete the development only code from the build
+  parts.setFreeVariable('process.env.NODE_ENV', 'production'),
 )
 
 const developmentConfig = merge(
