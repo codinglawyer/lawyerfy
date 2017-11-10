@@ -28,7 +28,7 @@ const commonConfig = merge(
   parts.loadFonts({
     options: {
       limit: 50000,
-      name: '[name].[ext]',
+      name: '[name].[hash:8].[ext]',
     },
   }),
   parts.loadJavascript({
@@ -37,6 +37,12 @@ const commonConfig = merge(
 )
 
 const productionConfig = merge(
+  {
+    output: {
+      chunkFilename: '[name].[chunkhash:8].js',
+      filename: '[name].[chunkhash:8].js',
+    },
+  },
   // include information about the build to the build folder
   parts.clean(PATHS.build),
   parts.attachRevision(),
@@ -61,7 +67,7 @@ const productionConfig = merge(
   parts.loadImages({
     options: {
       limit: 15000,
-      name: '[name].[ext]',
+      name: '[name].[hash:8].[ext]',
     },
   }),
   parts.minifyJavascript(),
