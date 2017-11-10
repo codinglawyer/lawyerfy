@@ -76,6 +76,7 @@ const productionConfig = merge(
     },
   }),
   parts.generateSourceMaps({ type: 'source-map' }),
+  // define performance budget
   {
     performance: {
       hints: 'warning', // 'error' or false are valid too
