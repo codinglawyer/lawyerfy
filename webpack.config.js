@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const parts = require('./webpack.parts')
 const merge = require('webpack-merge')
 const glob = require('glob')
+const webpack = require('webpack')
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
@@ -37,11 +38,16 @@ const commonConfig = merge(
 )
 
 const productionConfig = merge(
+  // including hashes related to the file contents to their names allows to invalidate them on the client side
   {
     output: {
       chunkFilename: '[name].[chunkhash:8].js',
       filename: '[name].[chunkhash:8].js',
     },
+  },
+  // module use hashes instead of IDs
+  {
+    plugins: [new webpack.HashedModuleIdsPlugin()],
   },
   // include information about the build to the build folder
   parts.clean(PATHS.build),
