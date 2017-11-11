@@ -61,6 +61,11 @@ const productionConfig = merge(
         resource.indexOf('node_modules') >= 0 &&
         resource.match(/\.js$/),
     },
+    // separete manifest from vendor bundle - vendor bundle won't change when the app files change
+    {
+      name: 'manifest',
+      minChunks: Infinity,
+    },
   ]),
   // extractCSS generate css bundle separated from js bundle to achieve faster css loading
   // autoprefix add vendor prefixes to CSS
