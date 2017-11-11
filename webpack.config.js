@@ -49,6 +49,9 @@ const productionConfig = merge(
   {
     plugins: [new webpack.HashedModuleIdsPlugin()],
   },
+  {
+    recordsPath: path.join(__dirname, "records.json"),
+  },
   // include information about the build to the build folder
   parts.clean(PATHS.build),
   parts.attachRevision(),
