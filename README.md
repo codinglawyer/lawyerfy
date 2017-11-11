@@ -2,7 +2,7 @@
 - advanced webpack boilerplate
 
 
-###Features:
+### Features:
 - CSS bundle separated from a JS bundle to achieve faster CSS loading
 - automatically add vendor prefixes to CSS code
 - eliminates unused JS and CSS code
