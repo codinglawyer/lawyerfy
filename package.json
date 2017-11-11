@@ -1,19 +1,30 @@
 {
   "name": "lawyerfy",
   "version": "1.0.0",
-  "description": "webpack configuration for projects",
-  "main": "index.js",
+  "description": "Advanced webpack boilerplate",
+  "main": "app/index.js",
   "scripts": {
     "build": "webpack --env production",
-    "dev": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
-    "debug": "node-nightly --inspect --debug-brk node_modules/.bin/webpack --env.debug",
+    "dev":
+      "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
+    "debug":
+      "node-nightly --inspect --debug-brk node_modules/.bin/webpack --env.debug",
     "debug:dev": "npm run debug -- --env.dev",
     "debug:prod": "npm run debug -- --env.prod",
     "stats": "webpack --env production --profile --json > stats.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "codinglawyer",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codinglawyer/lawyerfy.git"
+  },
+  "keywords": ["webpack"],
+  "author": "David Kopal (github.com/codinglawyer)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codinglawyer/lawyerfy.git/issues"
+  },
+  "homepage": "https://github.com/codinglawyer/lawyerfy.git",
   "devDependencies": {
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
