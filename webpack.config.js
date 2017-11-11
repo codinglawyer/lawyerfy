@@ -77,7 +77,8 @@ const productionConfig = merge(
   parts.purifyCSS({
     paths: glob.sync('${PATHS.app}/**/*.js', { nodir: true }),
   }),
-  // load images with url-loader to inline images, if too big, use file-loader to separate it from js bundle
+  // inline images using url-loader
+  // larger images are separated from js bundle using file-loader
   parts.loadImages({
     options: {
       limit: 15000,
@@ -104,7 +105,7 @@ const productionConfig = merge(
       maxAssetSize: 450000, // in bytes
     },
   },
-  // enables JavaScript minifier to delete the development only code from the build
+  // enables JavaScript minifier to delete the development-only code from the build
   parts.setFreeVariable('process.env.NODE_ENV', 'production'),
 )
 
