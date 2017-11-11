@@ -1,3 +1,10 @@
 body {
   background: cornsilk;
 }
+
+.title {
+  text-align: center;
+  margin: 200px;
+  display: block !important;
+  font-size: 100px !important;
+}
