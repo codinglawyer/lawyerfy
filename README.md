@@ -1,6 +1,6 @@
 
 ## lawyerfy
-###### Advanced webpack boilerplate
+##### advanced webpack boilerplate
 
 ## Getting Started
 To try the example application out or to use the project, follow the instructions below.
