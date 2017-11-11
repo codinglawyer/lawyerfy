@@ -2,3 +2,4 @@ node_modules
 build
 app/me.jpg
 app/NewTux.svg
+stats.json
