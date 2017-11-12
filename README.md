@@ -25,7 +25,7 @@ To try the example application out or to use the project, follow the instruction
 
 2. **Install dependencies**
 
-    `npm run install`
+    `npm install`
 
 3. **Run development server**
 
